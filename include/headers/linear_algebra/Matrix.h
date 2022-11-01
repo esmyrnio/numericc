@@ -23,10 +23,10 @@ namespace Super
 	{
 		private:
 		
-			using Row = typename std::vector<T>;
-			using Init = typename std::initializer_list<T>;
-			using Init2d = typename std::initializer_list<std::initializer_list<T>>;
-			using Mat = typename Matrix<T>;
+			using Row = std::vector<T>;
+			using Init = std::initializer_list<T>;
+			using Init2d = std::initializer_list<std::initializer_list<T>>;
+			using Mat = Matrix<T>;
 
 			std::vector<Row> _inner;
 

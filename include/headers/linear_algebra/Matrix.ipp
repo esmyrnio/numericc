@@ -58,7 +58,7 @@ namespace Super
 	}
 
 	template<typename T>
-	inline typename const Matrix<T>::Row const& Matrix<T>::operator[](size_t a) const
+	inline typename Matrix<T>::Row const& Matrix<T>::operator[](size_t a) const
 	{
 		return _inner[a];
 	}

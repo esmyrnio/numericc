@@ -4,6 +4,43 @@ A small C++ header-only library of numerical methods for linear algebra, root-fi
 
 ## Examples
 
+### linear algebra
+
+```cpp
+using integerMat = Numericc::Super::Matrix<int>;
+
+using namespace Numericc::LinearAlgebra;
+
+integerMat A = { {4, 1, 2, 1}, {1, 7, 1, 0}, {2, 1, 4, -1}, {1, 0, -1, 3} };
+integerMat C = { {1, 8, -2, 8}, {10, 1, -1, 0}, {-4, -6, 16, 0}, {10, -9, -7, 1} };
+integerMat B = { -8, -20, -2, 4}; // 1D matrix representation
+
+/* Matrix manipulations */
+
+auto A_trans = A.Transpose();
+auto A_det = A.Determinant();
+auto A_inverse = A.Inverse();
+auto A_adjoint = A.Adjoint();
+auto A_minmax = A.MinMax();
+
+/* Linear Algebra */
+
+using LSS = Numericc::Solutions::LinearSystemSolution<double>; // struct { Matrix<T> A, Matrix<T> B // components of the resulting A|B triangular augmented matrix. 
+                                                                         , Matrix<T> X              // solution to Ax = B }
+                                                                         
+using PIS = Numericc::Solutions::PowerIterationSolution<double>; // struct { T eigenvalue                   // largest eigen value
+                                                                           , std::vector<T> eigenvector     // corresponding eigenvector }
+
+LSS linear = LinearSystemSolver(A, B); // solves linear system Ax = B .
+
+std::cout << linear.A << linear.B << linear.A << std::endl; // overloaded << for matrices .
+
+PIS pis = PowerIteration(A, 100); // computes largest eigenvalue of matrix and corresponding eigenvector.
+
+std::cout << pis.eigenvalue << " " << pis.eigenvector << std::endl;
+}
+```
+
 ### root-finding
 
 ```cpp

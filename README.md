@@ -4,7 +4,7 @@ A small C++ header-only library of numerical methods for linear algebra, root-fi
 
 ## Examples
 
-### linear algebra
+### Linear Algebra
 
 ```cpp
 using integerMat = Numericc::Super::Matrix<int>;
@@ -23,6 +23,9 @@ auto A_inverse = A.Inverse();
 auto A_adjoint = A.Adjoint();
 auto A_minmax = A.MinMax();
 
+auto D = A @ C // matrix multiplication
+auto E = D / 5;
+
 /* Linear Algebra */
 
 /* struct { Matrix<T> A, Matrix<T> B // components of the resulting A|B triangular augmented matrix.                                                                             , Matrix<T> X              // solution to Ax = B } */
@@ -34,6 +37,7 @@ using PIS = Numericc::Solutions::PowerIterationSolution<double>; // struct
 
 LSS linear = LinearSystemSolver(A, B); // solves linear system Ax = B .
 
+auto correct = A*linear.X == B; // true
 std::cout << linear.A << linear.B << linear.A << std::endl; // overloaded << for matrices .
 
 PIS pis = PowerIteration(A, 100); // computes largest eigenvalue of matrix and corresponding eigenvector.
@@ -41,7 +45,6 @@ PIS pis = PowerIteration(A, 100); // computes largest eigenvalue of matrix and c
 std::cout << pis.eigenvalue << " " << pis.eigenvector << std::endl;
 }
 ```
-
 ### root-finding
 
 ```cpp

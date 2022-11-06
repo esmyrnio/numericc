@@ -139,4 +139,4 @@ Evangelos Smyrniotis
 
 ## License
 
-MIT
+MIT License

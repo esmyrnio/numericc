@@ -2,6 +2,11 @@
 
 A small C++ header-only library of numerical methods for linear algebra, root-finding, interpolators and ODE solving.
 
+### Contents:
+* [Examples](#examples)
+* [Installation & Dependencies](#installation & dependencies)
+* [Author and License](#author)
+
 ## Examples
 
 ### Linear Algebra

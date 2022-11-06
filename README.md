@@ -2,16 +2,31 @@
 
 A small C++ header-only library of numerical methods for linear algebra, root-finding, interpolators and more.
 
-# Examples
+## Examples
+
+### root-finding
 
 ```cpp
-    using RFS = Numericc::Solutions::RootFindingSolution;
-    using LSS = Numericc::Solutions::LinearSystemSolution<double>;
-    using PIS = Numericc::Solutions::PowerIterationSolution<double>;
+    double f(double x)
+    {
+        return exp(x) - 2 * x * cos(x) - 3;
+    }
+    double df(double x)
+    {
+        return exp(x) - 2 * cos(x) + 2 * x * sin(x);
+    }
+
+    using RFS = Numericc::Solutions::RootFindingSolution; // struct{double root, size_t iterations}
 
     using namespace Numericc::RootFinding;
 
-    RFS fixed = FixedPoint(g, -0.5, 100, 5);
-    RFS bisection = Bisection(f1, 0, 2, 5, 5);
-    RFS newton = NewtonRaphson(f1, df1, 1, 10, 5);
+    std::vector<double> bracket = {0,2};
+    auto a = bracket[0];
+    auto b = bracket[1];
+    size_t max_iterations = 50;
+    size_t accuracy = 5; // Scarborough criterion
+    RFS bisection = Bisection(f, a, b, max_iterations, accuracy);
+
+    double guess = 1.0;
+    RFS newton = NewtonRaphson(f, df, guess, max_iterations, accuracy);
 ```

@@ -25,11 +25,12 @@ auto A_minmax = A.MinMax();
 
 /* Linear Algebra */
 
-using LSS = Numericc::Solutions::LinearSystemSolution<double>; // struct { Matrix<T> A, Matrix<T> B // components of the resulting A|B triangular augmented matrix. 
-                                                                         , Matrix<T> X              // solution to Ax = B }
-                                                                         
-using PIS = Numericc::Solutions::PowerIterationSolution<double>; // struct { T eigenvalue                   // largest eigen value
-                                                                           , std::vector<T> eigenvector     // corresponding eigenvector }
+/* struct { Matrix<T> A, Matrix<T> B // components of the resulting A|B triangular augmented matrix.                                                                             , Matrix<T> X              // solution to Ax = B } */
+using LSS = Numericc::Solutions::LinearSystemSolution<double>;
+
+/* struct  { T eigenvalue                   // largest eigen value
+           , std::vector<T> eigenvector     // corresponding eigenvector } */                                                                      
+using PIS = Numericc::Solutions::PowerIterationSolution<double>; // struct
 
 LSS linear = LinearSystemSolver(A, B); // solves linear system Ax = B .
 

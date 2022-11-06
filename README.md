@@ -16,7 +16,7 @@ A small C++ header-only library of numerical methods for linear algebra, root-fi
 ### Linear Algebra
 
 ```cpp
-using integerMat = Numericc::Super::Matrix<int>;
+using dbMat = Numericc::Super::Matrix<int>;
 
 using namespace Numericc::LinearAlgebra;
 
@@ -46,8 +46,11 @@ using PIS = Numericc::Solutions::PowerIterationSolution<double>; // struct
 
 LSS linear = LinearSystemSolver(A, B); // solves linear system Ax = B .
 
-auto correct = A*linear.X == B; // true
 std::cout << linear.A << linear.B << linear.A << std::endl; // overloaded << for matrices .
+
+auto A_db = A.Convert(); // to double
+auto B_db = B.Convert(); //
+auto correct = A_db * linear.X == B_db.Transpose(); // true
 
 size_t max_iters = 100;
 PIS pis = PowerIteration(A, max_iters); // computes largest eigenvalue of matrix and corresponding eigenvector.

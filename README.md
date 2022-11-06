@@ -81,7 +81,7 @@ double RHS(double x, double y)
 }
 
 /* struct { double X, Y    // y (X) at X
-            double Xs, Ys  // solution vectors up to X}
+            double Xs, Ys  // solution vectors up to X} */
 using ODES = Numericc::Solutions::OdeSolution;
 
 using namespace Numericc::ODE;

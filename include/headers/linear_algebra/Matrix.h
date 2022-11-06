@@ -67,6 +67,7 @@ namespace Super
 			T AbsoluteMax() const;
 
 			Matrix<double> Convert() const;
+		
 			// *******************************************************
 			//	@ Operator overloading (internal/friend)
 			// *******************************************************

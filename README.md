@@ -21,9 +21,9 @@ auto A_trans = A.Transpose();
 auto A_det = A.Determinant();
 auto A_inverse = A.Inverse();
 auto A_adjoint = A.Adjoint();
-auto A_minmax = A.MinMax();
+auto A_minmax = A.MinMax(); // struct {T min,max};
 
-auto D = A @ C // matrix multiplication
+auto D = A * C // matrix multiplication
 auto E = D / 5;
 
 /* Linear Algebra */
@@ -45,7 +45,7 @@ PIS pis = PowerIteration(A, 100); // computes largest eigenvalue of matrix and c
 std::cout << pis.eigenvalue << " " << pis.eigenvector << std::endl;
 }
 ```
-### root-finding
+### root finding
 
 ```cpp
     double f(double x)
@@ -70,4 +70,48 @@ std::cout << pis.eigenvalue << " " << pis.eigenvector << std::endl;
 
     double guess = 1.0;
     RFS newton = NewtonRaphson(f, df, guess, max_iterations, accuracy);
+```
+
+### ODE solvers
+
+```cpp
+double RHS(double x, double y)
+{
+    return x + y + x * y;
+}
+
+/* struct { double X, Y    // y (X) at X
+            double Xs, Ys  // solution vectors up to X}
+using ODES = Numericc::Solutions::OdeSolution;
+
+using namespace Numericc::ODE;
+using namespace Numericc::ODE::RK;
+
+double x0 = 0.0;
+double y0 = 1.0;
+double step = 0.025;
+double x = 0.54;
+
+ODES euler = Euler(x0, y0, step, x, RHS);
+ODES rk4 = RK4(x0, y0, step, x, RHS);
+```
+
+### Interpolators
+
+```cpp
+double f(double x)
+{
+    return 1 / (1 + pow(x, 2));
+}
+
+using namespace Numericc::Interpolators::Newton;
+using namespace Numericc::Interpolators;
+
+std::vector<double> xv = { 45, 50, 55, 60 };
+std::vector<double> yv = { 0.7071, 0.7660, 0.8192, 0.8660 };
+
+double x = 52;
+double lagrange =  Lagrange(x, xv, yv);
+double newtonBD =  NewtonGregoryBD(x, xv, yv);
+double newtonFD =  NewtonGregoryFD(x, xv, yv)
 ```

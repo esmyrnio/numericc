@@ -40,7 +40,8 @@ LSS linear = LinearSystemSolver(A, B); // solves linear system Ax = B .
 auto correct = A*linear.X == B; // true
 std::cout << linear.A << linear.B << linear.A << std::endl; // overloaded << for matrices .
 
-PIS pis = PowerIteration(A, 100); // computes largest eigenvalue of matrix and corresponding eigenvector.
+size_t max_iters = 100;
+PIS pis = PowerIteration(A, max_iters); // computes largest eigenvalue of matrix and corresponding eigenvector.
 
 std::cout << pis.eigenvalue << " " << pis.eigenvector << std::endl;
 }

@@ -4,7 +4,11 @@ A small C++ header-only library of numerical methods for linear algebra, root-fi
 
 ### Contents:
 * [Examples](#examples)
-* [Installation & Dependencies](#installation & dependencies)
+    * [Linear Algebra](#linear-algebra)
+    * [Root finding](#root-finding)
+    * [ODE solving](#ode-solving)
+    * [Interpolation](#interpolation)
+* [Installation and Dependencies](#installation-and-dependencies)
 * [Author and License](#author)
 
 ## Examples
@@ -51,7 +55,7 @@ PIS pis = PowerIteration(A, max_iters); // computes largest eigenvalue of matrix
 std::cout << pis.eigenvalue << " " << pis.eigenvector << std::endl;
 }
 ```
-### root finding
+### Root finding
 
 ```cpp
     double f(double x)
@@ -78,7 +82,7 @@ std::cout << pis.eigenvalue << " " << pis.eigenvector << std::endl;
     RFS newton = NewtonRaphson(f, df, guess, max_iterations, accuracy);
 ```
 
-### ODE solvers
+### ODE solving
 
 ```cpp
 double RHS(double x, double y)
@@ -102,7 +106,7 @@ ODES euler = Euler(x0, y0, step, x, RHS);
 ODES rk4 = RK4(x0, y0, step, x, RHS);
 ```
 
-### Interpolators
+### Interpolation
 
 ```cpp
 double f(double x)
@@ -122,9 +126,17 @@ double newtonBD =  NewtonGregoryBD(x, xv, yv);
 double newtonFD =  NewtonGregoryFD(x, xv, yv)
 ```
 
-## Installation & Dependencies
+## Installation and Dependencies
 numericc is a header-only library. Simply add the header files to your project using
 ```cpp
 #include "include/numericc.h"
 ```
 The only dependency is a C++11 compatible compiler.
+
+## Author
+
+Evangelos Smyrniotis
+
+## License
+
+MIT

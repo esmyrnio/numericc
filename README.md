@@ -115,3 +115,10 @@ double lagrange =  Lagrange(x, xv, yv);
 double newtonBD =  NewtonGregoryBD(x, xv, yv);
 double newtonFD =  NewtonGregoryFD(x, xv, yv)
 ```
+
+## Installation & Dependencies
+numericc is a header-only library. Simply add the header files to your project using
+```cpp
+#include "include/numericc.h"
+```
+The only dependency is a C++11 compatible compiler.

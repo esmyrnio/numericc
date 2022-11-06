@@ -1,6 +1,6 @@
 # numericc
 
-A small C++ header-only library of numerical methods for linear algebra, root-finding, interpolators and more.
+A small C++ header-only library of numerical methods for linear algebra, root-finding, interpolators and ODE solving.
 
 ## Examples
 

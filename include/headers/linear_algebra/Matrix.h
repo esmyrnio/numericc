@@ -96,9 +96,6 @@ namespace Super
 	Matrix<T> operator*(Matrix<T> const& A, T const& val);
 	template<typename T>
 	Matrix<T> operator/(Matrix<T> const& A, T const& val);
-
-	template<typename T, typename U>
-	Matrix<T> convert(Matrix<U> const&);
 }
 
 #include "Matrix.ipp"

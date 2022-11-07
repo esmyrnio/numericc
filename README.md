@@ -16,7 +16,7 @@ A small C++ header-only library of numerical methods for linear algebra, root-fi
 ### Linear Algebra
 
 ```cpp
-using integerMat = Numericc::Super::Matrix<int>;
+using integerMat = Numericc::Super::Matrix<int>; // custom matrix class
 
 using namespace Numericc::LinearAlgebra;
 

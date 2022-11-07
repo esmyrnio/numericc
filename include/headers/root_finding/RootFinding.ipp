@@ -20,7 +20,8 @@ namespace RootFinding
       @ maxIter : maximum number of iterations allowed.
       @ scarboroughCrit: Scarborough criterion's parameter for tracking convergence of the solution.
 
-      @ Returns a struct containing the root solution and the total number of iterations.
+      @ Returns a struct containing the root solution, the total number of iterations,
+        and a boolean convergence check.
     */
 
     Solutions::RootFindingSolution Bisection(db(*f)(db x), db a, db b, size_t maxIter, size_t scarboroughCrit)
@@ -66,7 +67,8 @@ namespace RootFinding
       @ maxIter : maximum number of iterations allowed.
       @ scarboroughCrit: Scarborough criterion's parameter for tracking convergence of the solution.
 
-      @ Returns a struct containing the root solution and the total number of iterations.
+      @ Returns a struct containing the root solution, the total number of iterations,
+        and a boolean convergence check.
     */
 
     Solutions::RootFindingSolution NewtonRaphson(db(*f)(db x), db(*df)(db x), const db startingPoint, size_t maxIter, size_t scarboroughCrit)

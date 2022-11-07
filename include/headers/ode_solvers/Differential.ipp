@@ -76,7 +76,7 @@ namespace ODE
 
 		Solutions::OdeSolution RK4(db x0, db y0, db const step, db const x, db(*ODE)(db x, db y))
 		{
-			Assert(step != 0, "Euler method failed: zero step sie was given.");
+			Assert(step != 0, "Euler method failed: zero step size was given.");
 			auto N = (x - x0) / step;
 
 			std::vector<db> xs = { x0 };

@@ -33,7 +33,7 @@ auto A_adjoint = A.Adjoint();
 auto A_minmax = A.MinMax(); // struct {T min,max};
 
 auto D = A * C // matrix multiplication
-auto E = D / 5;
+auto E = D * 5;
 
 /* Linear Algebra */
 

@@ -112,11 +112,6 @@ ODES rk4 = RK4(x0, y0, step, x, RHS);
 ### Interpolation
 
 ```cpp
-double f(double x)
-{
-    return 1 / (1 + pow(x, 2));
-}
-
 using namespace Numericc::Interpolators::Newton;
 using namespace Numericc::Interpolators;
 

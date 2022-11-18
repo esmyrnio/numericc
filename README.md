@@ -46,7 +46,7 @@ using PIS = Numericc::Solutions::PowerIterationSolution<double>; // struct
 
 LSS linear = LinearSystemSolver(A, B); // solves linear system Ax = B .
 
-std::cout << linear.A << linear.B << linear.A << std::endl; // overloaded << for matrices .
+std::cout << linear.A << linear.B << linear.X << std::endl; // overloaded << for matrices .
 
 auto A_db = A.Convert(); // to double
 auto B_db = B.Convert(); //
